@@ -24,7 +24,7 @@ class HelloServiceImplSpyTest {
     private HelloServiceImpl helloService;
 
     @Mock private HelloRepository helloRepository;
-    @Captor ArgumentCaptor<String> stringArgumentCaptor;
+    @Captor private ArgumentCaptor<String> stringArgumentCaptor;
 
     @BeforeEach
     void init() {
