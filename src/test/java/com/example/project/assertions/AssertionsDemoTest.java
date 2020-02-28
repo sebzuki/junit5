@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class AssertionsDemo {
+public class AssertionsDemoTest {
 
     @Test
     void assert_With_Hamcrest_Matcher() {

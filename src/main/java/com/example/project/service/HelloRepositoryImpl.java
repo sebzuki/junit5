@@ -9,19 +9,20 @@
  * in accordance with the terms of the license agreement you
  * entered into with Group JCDecaux.
  */
-package com.example.project.disable;
+package com.example.project.service;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
 
-class DisabledTestsDemo {
+import org.springframework.stereotype.Repository;
 
-    @Disabled("Disabled until bug #42 has been resolved")
-    @Test
-    void testWillBeSkipped() {
+@Repository
+public class HelloRepositoryImpl implements HelloRepository {
+    @Override
+    public String get() {
+        return "Hello JUnit 5";
     }
 
-    @Test
-    void testWillBeExecuted() {
+    @Override
+    public void save(String str) {
+        //
     }
 }

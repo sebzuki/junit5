@@ -19,7 +19,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-public class ConditionJavaVersion {
+public class ConditionJavaVersionTest {
     @Test
     @EnabledOnJre(JRE.JAVA_8)
     void onlyOnJava8() {

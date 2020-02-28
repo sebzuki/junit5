@@ -10,22 +10,14 @@
 
 package com.example.project.parametrized;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import com.example.project.Calculator;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 
-class CsvSourceTests {
+import static org.junit.jupiter.api.Assertions.*;
 
-	@Test
-	@DisplayName("1 + 1 = 2")
-	void addsTwoNumbers() {
-		Calculator calculator = new Calculator();
-		assertEquals(2, calculator.add(1, 1), "1 + 1 should equal 2");
-	}
+class CsvSourceTests {
 
 	@ParameterizedTest(name = "{0} + {1} = {2}")
 	@CsvSource({
@@ -38,5 +30,12 @@ class CsvSourceTests {
 		Calculator calculator = new Calculator();
 		assertEquals(expectedResult, calculator.add(first, second),
 				() -> first + " + " + second + " should equal " + expectedResult);
+	}
+
+	@ParameterizedTest
+	@CsvFileSource(resources = "/two-column.csv", numLinesToSkip = 1)
+	void testWithCsvFileSource(String country, int reference) {
+		assertNotNull(country);
+		assertNotEquals(0, reference);
 	}
 }

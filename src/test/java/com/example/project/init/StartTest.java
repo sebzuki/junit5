@@ -13,24 +13,26 @@ package com.example.project.init;
 
 import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.fail;
-
 class StartTest {
 
     @BeforeAll
     static void initAll() {
+        System.out.println("BeforeAll");
     }
 
     @AfterAll
     static void tearDownAll() {
+        System.out.println("AfterAll");
     }
 
     @BeforeEach
     void init() {
+        System.out.println("BeforeEach");
     }
 
     @Test
     void succeeding_test() {
+        System.out.println("Test");
     }
 
     @Test
@@ -41,5 +43,6 @@ class StartTest {
 
     @AfterEach
     void tearDown() {
+        System.out.println("AfterEach");
     }
 }

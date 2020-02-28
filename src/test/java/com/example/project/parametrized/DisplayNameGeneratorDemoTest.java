@@ -11,11 +11,24 @@
  */
     package com.example.project.parametrized;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EmptySource;
+import org.junit.jupiter.params.provider.EnumSource;
+import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.platform.commons.util.StringUtils;
 
-class DisplayNameGeneratorDemo {
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
+import java.util.EnumSet;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+class DisplayNameGeneratorDemoTest {
 
     @Nested
     class A_year_is_not_supported {
@@ -40,6 +53,26 @@ class DisplayNameGeneratorDemo {
             @ValueSource(ints = { 2016, 2020, 2048 })
             void if_it_is_one_of_the_following_years(int year) {
             }
+        }
+
+        @ParameterizedTest
+        @NullSource
+        @EmptySource
+        @ValueSource(strings = { "racecar", "radar", "able was I ere I saw elba" })
+        void palindromes(String candidate) {
+            assertTrue(StringUtils.isNotBlank(candidate));
+        }
+
+        @ParameterizedTest
+        @EnumSource(ChronoUnit.class)
+        void testWithEnumSource(TemporalUnit unit) {
+            assertNotNull(unit);
+        }
+
+        @ParameterizedTest
+        @EnumSource(names = { "DAYS", "HOURS" })
+        void testWithEnumSourceInclude(ChronoUnit unit) {
+            assertTrue(EnumSet.of(ChronoUnit.DAYS, ChronoUnit.HOURS).contains(unit));
         }
     }
 }

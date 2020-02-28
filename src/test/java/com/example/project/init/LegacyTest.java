@@ -14,7 +14,7 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class Legacy {
+public class LegacyTest {
 
 	@Test
 	public void adds_Two_Numbers() {

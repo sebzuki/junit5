@@ -9,15 +9,10 @@
  * in accordance with the terms of the license agreement you
  * entered into with Group JCDecaux.
  */
-package com.example.project.disable;
+package com.example.project.service;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+public interface HelloRepository {
+    String get();
 
-@Disabled("Disabled until bug #99 has been fixed")
-class DisabledClassDemo {
-
-    @Test
-    void testWillBeSkipped() {
-    }
+    void save(String str);
 }
