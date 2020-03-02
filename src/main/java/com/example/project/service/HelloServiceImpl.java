@@ -25,13 +25,13 @@ public class HelloServiceImpl implements HelloService {
     }
 
     @Override
-    public String get() {
-        return helloRepository.get();
+    public String find() {
+        return helloRepository.find();
     }
 
     @Override
     public String other() {
-        return get();
+        return find();
     }
 
     @Override

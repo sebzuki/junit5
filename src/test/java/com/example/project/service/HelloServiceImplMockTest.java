@@ -17,12 +17,12 @@ class HelloServiceImplMockTest {
     @BeforeEach
     void init(@Mock HelloRepository helloRepository) {
         helloService = new HelloServiceImpl(helloRepository);
-        when(helloRepository.get()).thenReturn("Hello Seb");
+        when(helloRepository.find()).thenReturn("Hello Seb");
     }
 
     @Test
     void test_get() {
-        assertEquals("Hello Seb", helloService.get());
+        assertEquals("Hello Seb", helloService.find());
     }
 
 }

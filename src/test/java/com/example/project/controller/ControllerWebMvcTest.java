@@ -28,7 +28,7 @@ class ControllerWebMvcTest {
 
     @Test
     void find_nominal() throws Exception {
-        when(helloService.get()).thenReturn("yes!");
+        when(helloService.find()).thenReturn("yes!");
 
         mockMvc.perform(get("/api"))
                 .andExpect(content().string("yes!"))

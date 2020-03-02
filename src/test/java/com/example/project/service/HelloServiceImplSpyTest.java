@@ -34,17 +34,17 @@ class HelloServiceImplSpyTest {
 
     @Test
     void test_get() {
-        when(helloRepository.get()).thenReturn("Hello Seb");
-        assertEquals("Hello Seb", helloService.get());
+        when(helloRepository.find()).thenReturn("Hello Seb");
+        assertEquals("Hello Seb", helloService.find());
     }
 
     @Test
     void test_other() {
-        doReturn("Hello get").when(helloService).get();
+        doReturn("Hello get").when(helloService).find();
 
         assertEquals("Hello get", helloService.other());
 
-        verify(helloService, times(1)).get();
+        verify(helloService, times(1)).find();
     }
 
     @Test

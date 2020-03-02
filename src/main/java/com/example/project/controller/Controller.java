@@ -28,6 +28,6 @@ public class Controller {
 
     @GetMapping
     String find() {
-        return helloService.get();
+        return helloService.find();
     }
 }

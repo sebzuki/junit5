@@ -23,13 +23,13 @@ class HelloServiceImplMock2Test {
 
     @Test
     void test_get() {
-        when(helloRepository.get()).thenReturn("Hello Seb");
-        assertEquals("Hello Seb", helloService.get());
+        when(helloRepository.find()).thenReturn("Hello Seb");
+        assertEquals("Hello Seb", helloService.find());
     }
 
     @Test
     void other() {
-        when(helloRepository.get()).thenReturn("Hello Seb");
+        when(helloRepository.find()).thenReturn("Hello Seb");
         assertEquals("Hello Seb", helloService.other());
     }
 }

@@ -14,7 +14,7 @@ package com.example.project.service;
 import java.util.List;
 
 public interface HelloService {
-    String get();
+    String find();
 
     String other();
 
