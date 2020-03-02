@@ -1,5 +1,6 @@
 package com.example.project.service;
 
+import com.example.project.dao.HelloRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -9,20 +9,10 @@
  * in accordance with the terms of the license agreement you
  * entered into with Group JCDecaux.
  */
-package com.example.project.service;
+package com.example.project.dao;
 
+public interface HelloRepository {
+    String get();
 
-import org.springframework.stereotype.Repository;
-
-@Repository
-public class HelloRepositoryImpl implements HelloRepository {
-    @Override
-    public String get() {
-        return "Hello JUnit 5";
-    }
-
-    @Override
-    public void save(String str) {
-        //
-    }
+    void save(String str);
 }
