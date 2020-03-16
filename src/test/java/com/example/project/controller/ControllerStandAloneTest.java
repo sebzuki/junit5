@@ -16,6 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith(MockitoExtension.class)
 class ControllerStandAloneTest {
+    private static final String HELLO = "hello";
     private MockMvc mockMvc;
 
     @Mock HelloService helloService;
@@ -28,11 +29,11 @@ class ControllerStandAloneTest {
     }
 
     @Test
-    void find_nominal() throws Exception {
-        when(helloService.find()).thenReturn("yes!");
+    void find_must_call_and_return_response() throws Exception {
+        when(helloService.find()).thenReturn(HELLO);
 
         mockMvc.perform(get("/api"))
-                .andExpect(content().string("yes!"))
+                .andExpect(content().string(HELLO))
                 .andExpect(status().isOk());
     }
 }

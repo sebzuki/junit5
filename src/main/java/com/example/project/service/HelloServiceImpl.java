@@ -27,7 +27,7 @@ public class HelloServiceImpl implements HelloService {
     }
 
     @Override
-    public void captor(List<String> list) {
+    public void process(List<String> list) {
         list.stream()
                 .filter(s -> s.startsWith("s"))
                 .findFirst()

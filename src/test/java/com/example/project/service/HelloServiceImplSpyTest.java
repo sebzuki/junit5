@@ -16,12 +16,12 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class HelloServiceImplSpyTest {
+    public static final String HELLO = "Hello Seb";
     private HelloServiceImpl helloService;
 
     @Mock private HelloRepository helloRepository;
@@ -33,23 +33,25 @@ class HelloServiceImplSpyTest {
     }
 
     @Test
-    void test_get() {
-        when(helloRepository.find()).thenReturn("Hello Seb");
-        assertEquals("Hello Seb", helloService.find());
+    void find_should_return_reponse_of_repository() {
+        when(helloRepository.find()).thenReturn(HELLO);
+
+        assertThat(helloService.find()).isEqualTo(HELLO);
     }
 
     @Test
-    void test_other() {
-        doReturn("Hello get").when(helloService).find();
+    void other_should_return_reponse_of_find() {
+        doReturn(HELLO).when(helloService).find();
 
-        assertEquals("Hello get", helloService.other());
+        assertThat(helloService.other()).isEqualTo(HELLO);
 
         verify(helloService, times(1)).find();
     }
 
+    // pour un type void, verify est indispensable
     @Test
-    void captor_light() {
-        helloService.captor(List.of("toto", "seb"));
+    void process_should_call_save_repository() {
+        helloService.process(List.of("toto", "seb"));
 
         verify(helloRepository, times(1)).save(stringArgumentCaptor.capture());
         assertThat(stringArgumentCaptor.getValue()).isEqualTo("seb");
@@ -57,16 +59,17 @@ class HelloServiceImplSpyTest {
 
     @ParameterizedTest
     @MethodSource("listArg")
-    void captor_parametrized_repo_called(String str, List<String> list) {
-        helloService.captor(list);
+    void process_should_call_save_repository_with_selected_values(String str, List<String> list) {
+        helloService.process(list);
 
         verify(helloRepository, times(1)).save(stringArgumentCaptor.capture());
         assertThat(stringArgumentCaptor.getValue()).isEqualTo(str);
     }
 
+    // pas nécessaire pour la couverture mais pour le use case qu'il représente
     @Test
-    void captor_parametrized_repo_never_called() {
-        helloService.captor(List.of("patates", "croutons"));
+    void process_should_not_call_save_repository() {
+        helloService.process(List.of("patates", "croutons"));
 
         verify(helloRepository, times(0)).save(any());
     }

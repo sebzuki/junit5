@@ -1,5 +1,5 @@
 /*
- * Sébastien Leboucher
+ * Sï¿½bastien Leboucher
  */
     package com.example.project.parametrized;
 
@@ -48,8 +48,8 @@ class DisplayNameGeneratorDemoTest {
         }
 
         @ParameterizedTest
-        @NullSource
-        @EmptySource
+        //@NullSource
+        //@EmptySource
         @ValueSource(strings = { "racecar", "radar", "able was I ere I saw elba" })
         void palindromes(String candidate) {
             assertTrue(StringUtils.isNotBlank(candidate));

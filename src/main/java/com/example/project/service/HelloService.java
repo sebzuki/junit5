@@ -10,5 +10,5 @@ public interface HelloService {
 
     String other();
 
-    void captor(List<String> list);
+    void process(List<String> list);
 }

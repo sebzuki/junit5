@@ -27,11 +27,11 @@ class ControllerWebMvcTest {
     HelloService helloService;
 
     @Test
-    void find_nominal() throws Exception {
+    void find_must_call_and_return_response() throws Exception {
         when(helloService.find()).thenReturn("yes!");
 
         mockMvc.perform(get("/api"))
-                .andExpect(content().string("yes!"))
+                .andExpect(content().string(helloService.find()))
                 .andExpect(status().isOk());
     }
 }

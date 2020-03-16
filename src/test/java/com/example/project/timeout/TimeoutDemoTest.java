@@ -1,11 +1,9 @@
 /*
- * Sébastien Leboucher
+ * Sï¿½bastien Leboucher
  */
 package com.example.project.timeout;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -16,6 +14,7 @@ public class TimeoutDemoTest {
         // fails if execution time exceeds 5 seconds
     }
 
+    @Disabled
     @Test
     @Timeout(value = 100, unit = TimeUnit.MILLISECONDS)
     void failsIfExecutionTimeExceeds100Milliseconds() throws InterruptedException {
