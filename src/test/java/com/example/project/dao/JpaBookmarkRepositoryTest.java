@@ -65,7 +65,7 @@ class JpaBookmarkRepositoryTest {
         // assert de tous les champs et récursivement de tous les champs des sous objets
         assertThat(result.get()).usingRecursiveComparison().isEqualTo(bookmark);
 
-        // assert de tous le champs en mode visuel, utilise si une convertion d'objet est faite
+        // assert de tous le champs en mode visuel, utilise si une conversion d'objet est faite
         BookmarkEntity expectedBookmark =
                 objectMapper.readValue(new ClassPathResource("bookmark.json").getFile(), BookmarkEntity.class);
         String actual = objectMapper.writerWithDefaultPrettyPrinter()
