@@ -15,13 +15,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-public class ParamTest {
+class ParamTest {
 
     @ParameterizedTest
     @MethodSource("thisTestArgs")
     void testWithMultiArgMethodSource(String str, int num, List<String> list) {
         assertEquals(5, str.length());
-        assertTrue(num >=1 && num <=2);
+        assertTrue(num >= 1 && num <= 2);
         assertEquals(2, list.size());
     }
 
