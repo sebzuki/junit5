@@ -19,7 +19,7 @@ public class Controller {
     }
 
     @GetMapping
-    String find() {
+    public String find() {
         return helloService.find();
     }
 }
