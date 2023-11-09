@@ -1,1 +1,7 @@
-{"url":"BookmarkEntity France","name":"France","tags":["test"]}
+{
+  "url": "BookmarkEntity France",
+  "name": "France",
+  "tags": [
+    "test"
+  ]
+}
