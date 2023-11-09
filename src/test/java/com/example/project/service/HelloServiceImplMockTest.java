@@ -1,6 +1,7 @@
 package com.example.project.service;
 
 import com.example.project.dao.HelloRepository;
+import com.example.project.dao.JpaBookmarkRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,8 +17,8 @@ class HelloServiceImplMockTest {
     private HelloServiceImpl helloService;
 
     @BeforeEach
-    void init(@Mock HelloRepository helloRepository) {
-        helloService = new HelloServiceImpl(helloRepository);
+    void init(@Mock HelloRepository helloRepository, @Mock JpaBookmarkRepository bookmarkRepository) {
+        helloService = new HelloServiceImpl(helloRepository, bookmarkRepository);
         lenient().when(helloRepository.find()).thenReturn(HELLO);
     }
 

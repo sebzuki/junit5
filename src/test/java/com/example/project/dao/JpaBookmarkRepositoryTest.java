@@ -60,9 +60,9 @@ class JpaBookmarkRepositoryTest {
         assertThat(result).isNotEmpty();
         // assert unitaires
         assertThat(result.get().getName()).isEqualTo(bookmark.getName());
-        // assert de tous les champs - faiblesse : echoue si un sous objet existe (à cause de la référence)
+        // assert de tous les champs - faiblesse : echoue si un sous objet existe (a cause de la reference)
         assertThat(result.get()).isEqualToComparingFieldByField(bookmark);
-        // assert de tous les champs et récursivement de tous les champs des sous objets
+        // assert de tous les champs et recursivement de tous les champs des sous objets
         assertThat(result.get()).usingRecursiveComparison().isEqualTo(bookmark);
 
         // assert de tous le champs en mode visuel, utilise si une conversion d'objet est faite

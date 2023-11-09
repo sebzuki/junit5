@@ -9,6 +9,6 @@ import java.util.Optional;
 @Repository
 public interface JpaBookmarkRepository extends CrudRepository<BookmarkEntity, String> {
     Optional<BookmarkEntity> findByUrl(String url);
-
+    Optional<BookmarkEntity> findByName(String name);
     List<BookmarkEntity> findAll();
 }

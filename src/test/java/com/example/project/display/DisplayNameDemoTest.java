@@ -12,7 +12,7 @@ class DisplayNameDemoTest {
     }
 
     @Test
-    @DisplayName("&é'(-è_çà)=")
+    @DisplayName("&e'(-è_ca)=")
     void testWithDisplayNameContainingSpecialCharacters() {
     }
 

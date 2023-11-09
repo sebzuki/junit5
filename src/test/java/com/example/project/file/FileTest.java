@@ -1,5 +1,5 @@
 /*
- * Sébastien Leboucher
+ * Sebastien Leboucher
  */
 package com.example.project.file;
 
@@ -13,7 +13,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class FileTest {
+class FileTest {
 
     @TempDir
     static Path sharedTempDir;

@@ -1,5 +1,5 @@
 /*
- * Sébastien Leboucher
+ * Sebastien Leboucher
  */
 package com.example.project.service;
 
@@ -11,4 +11,6 @@ public interface HelloService {
     String other();
 
     void process(List<String> list);
+
+    BookmarkDTO saveAndFind(String arg);
 }

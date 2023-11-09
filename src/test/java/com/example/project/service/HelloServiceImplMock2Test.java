@@ -1,6 +1,7 @@
 package com.example.project.service;
 
 import com.example.project.dao.HelloRepository;
+import com.example.project.dao.JpaBookmarkRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,10 +17,11 @@ class HelloServiceImplMock2Test {
     private HelloServiceImpl helloService;
 
     @Mock private HelloRepository helloRepository;
+    @Mock private JpaBookmarkRepository bookmarkRepository;
 
     @BeforeEach
     void init() {
-        helloService = new HelloServiceImpl(helloRepository);
+        helloService = new HelloServiceImpl(helloRepository, bookmarkRepository);
     }
 
     @Test
@@ -33,7 +35,7 @@ class HelloServiceImplMock2Test {
     void other_should_return_reponse_of_find() {
         when(helloRepository.find()).thenReturn(HELLO);
 
-        // ça n'est pas vraiment ce que l'on teste ici... rien ne permet de savoir que other a été appelé, on va voir si on peut faire mieux
+        // ca n'est pas vraiment ce que l'on teste ici... rien ne permet de savoir que other a ete appele, on va voir si on peut faire mieux
         assertThat(helloService.other()).isEqualTo(HELLO);
     }
 }

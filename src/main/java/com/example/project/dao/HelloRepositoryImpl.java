@@ -1,5 +1,5 @@
 /*
- * Sébastien Leboucher
+ * Sebastien Leboucher
  */
 package com.example.project.dao;
 

@@ -1,5 +1,5 @@
 /*
- * Sébastien Leboucher
+ * Sebastien Leboucher
  */
 package com.example.project.repeted;
 
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.RepetitionInfo;
 import org.junit.jupiter.api.TestInfo;
 
-public class RepeatTest {
+class RepeatTest {
     @RepeatedTest(10)
     void repeatedTest() {
         // ...

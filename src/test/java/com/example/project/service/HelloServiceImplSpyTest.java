@@ -1,6 +1,7 @@
 package com.example.project.service;
 
 import com.example.project.dao.HelloRepository;
+import com.example.project.dao.JpaBookmarkRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -25,11 +26,13 @@ class HelloServiceImplSpyTest {
     private HelloServiceImpl helloService;
 
     @Mock private HelloRepository helloRepository;
+    @Mock private JpaBookmarkRepository bookmarkRepository;
+
     @Captor private ArgumentCaptor<String> stringArgumentCaptor;
 
     @BeforeEach
     void init() {
-        helloService = spy(new HelloServiceImpl(helloRepository));
+        helloService = spy(new HelloServiceImpl(helloRepository, bookmarkRepository));
     }
 
     @Test
@@ -66,7 +69,7 @@ class HelloServiceImplSpyTest {
         assertThat(stringArgumentCaptor.getValue()).isEqualTo(str);
     }
 
-    // pas nécessaire pour la couverture mais pour le use case qu'il représente
+    // pas necessaire pour la couverture mais pour le use case qu'il represente
     @Test
     void process_should_not_call_save_repository() {
         helloService.process(List.of("patates", "croutons"));
